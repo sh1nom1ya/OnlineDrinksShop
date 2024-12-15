@@ -1,0 +1,16 @@
+@model drunkShop.Models.Product
+
+<a asp-action="Details" asp-route-id="@Model.Id" class="kvadrat filter @Model.Category.Naming.Replace(' ','_')">
+    @*<img src="~/Images/Group3.png" alt="" class="krug">*@
+    <img class="card-img-top img-fluid d-block mx-auto mb-3" src="@WC.ImagePath@Model.Image" alt="Card image cap" />
+    <h2>@Model.Naming</h2>
+    <span>
+        <h4>@Model.Category.Naming</h4>
+        <h4>@Model.ApplicationType.Naming</h4>
+    </span>
+    <span>
+        <h4>@Model.Price р</h4>
+        <h4>@Model.Volume мл</h4>
+    </span>
+    @*<div class="btn"><a asp-action="Details" asp-route-id="@Model.Id">Заказать</a></div>*@
+</a>

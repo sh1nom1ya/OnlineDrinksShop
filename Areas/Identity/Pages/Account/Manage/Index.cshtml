@@ -1,0 +1,64 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Профиль";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h2>Персональная информация</h2>
+<partial name="_StatusMessage" for="StatusMessage" />
+<form class="inp" id="profile-form" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+    <div>
+        <label asp-for="Input.FullName" class="form-label">Имя пользователя</label>
+        <input asp-for="Input.FullName"
+                required
+                type="text"
+                class="inputprof form-control"
+                autocomplete="cc-name"
+                placeholder="Иванов Иван"
+                pattern="[a-zA-Zа-яА-ЯёЁ]+\s[a-zA-Zа-яА-ЯёЁ]+"
+                title="Введите имя и фамилию через пробел (только буквы).">
+    </div>
+
+    <div class="phone-number">
+        <label asp-for="Input.PhoneNumber" class="form-label">Номер телефона</label>
+        <input asp-for="Input.PhoneNumber"
+                required
+                type="text"
+                class="inputprof form-control"
+                inputmode="numeric"
+                maxlength="18"
+                placeholder="+7 (___) ___-__-__"
+                pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}"
+                title="Введите номер телефона в формате: +7 (999) 999-99-99.">
+    </div>
+
+    <button type="submit" class="save">Сохранить</button>
+</form>
+
+
+@*<h2>Персональная информация</h2>
+    <partial name="_StatusMessage" for="StatusMessage" />
+    <div class="row">
+        <div class="col-md-6">
+            <form id="profile-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Username" class="form-control" placeholder="Введите имя" disabled />
+                    <label asp-for="Username" class="form-label"></label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="8··········"/>
+                    <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

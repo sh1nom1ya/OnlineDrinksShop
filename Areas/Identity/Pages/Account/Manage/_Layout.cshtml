@@ -1,0 +1,27 @@
+﻿<link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<div class="wrapperprof">
+    <div class="profile">
+        <div class="leftinf">
+            <img class = "ava" src="~/Images/user.png" />
+            <partial name="_ManageNav" />
+        </div>
+        <div class="profinf">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

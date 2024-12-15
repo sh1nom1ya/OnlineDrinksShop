@@ -1,0 +1,578 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Montserrat";
+    font-weight: 400;
+    color: #fff;
+    background: #000; 
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 25px;
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px); /* Размытие заднего фона */
+    -webkit-backdrop-filter: blur(10px); /* Для поддержки в Safari */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    z-index: 1000; /* Высокий z-index для поверхностного расположения */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-left: 25px;
+    margin-right: 70px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 7px;
+}
+
+    header nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin-left: 0px;
+        margin-right: 0;
+        margin-bottom: auto;
+        /*        margin-top: auto;*/
+/*        padding-bottom: 10px;*/
+    }
+
+.left{
+    margin-left: 5px;
+}
+
+.right {
+    margin-right: 55px;
+}
+
+header nav ul li {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    cursor: pointer;
+    width: 70px;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-bottom: 2px;
+    margin-top: 0;
+    transition: all 200ms ease;
+}
+
+.vid:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+}
+
+.shesternya:hover {
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+}
+
+/*.active{
+    background: #ffffff12;
+    margin-top: 0;
+    margin-left: 0;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.45);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.45);
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.45);
+}*/
+
+header nav ul li img{
+    width: 50%;
+    margin-left: 18px;
+}
+
+
+.shesternya {
+    margin-top: 9px;
+    width: 35px;
+}
+
+
+header nav ul li img {
+    width: 50%;
+    margin-left: 18px;
+}
+
+
+.dropdown-menu li {
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: pointer;
+    width: 170px;
+    margin-left: 0;
+    line-height: 35px;
+}
+
+
+.dropdown-divider {
+    color: white;
+}
+
+
+.mainMenu {
+    background: none;
+}
+
+
+.dropdown-menu {
+    position: relative;
+    top: 100px;
+    background: linear-gradient(135deg, rgba(51, 7, 23, 0.9), rgba(63, 9, 27, 0.9));
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+
+.dropdown-menu li a {
+    color: #fff;
+}
+
+
+.dropdown-menu li a:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: #fff;
+}
+
+
+.wrapper {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 27%, rgba(0,0,0,0) 49%,
+        rgba(0,0,0,0.16150210084033612) 61%,
+        rgba(0,0,0,0.9122023809523809) 95%,
+        rgba(0,0,0,1) 100%), url(/Images/bgmain.JPG) no-repeat center center fixed;
+    background-size: cover;
+    max-width: 100%;
+    position: relative;
+    padding-top: 80px;
+    overflow-x: hidden;
+}
+
+
+.hero {
+    width: 100%;
+    padding-bottom: 600px;
+    display: grid;
+}
+
+
+.addBasket {
+    width: 35px;
+    margin-top: -8px;
+    padding: 0;
+}
+
+
+/* Общая информация*/
+.about-us {
+    text-align: center;
+    padding: 120px 10px;
+    color: #fff;
+    margin-bottom: 0;
+    margin-inline: auto;
+    max-width: 80%;
+}
+
+
+.about-us h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+
+.about-us p {
+    font-size: 24px;
+    font-family: "Montserrat", sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+
+/*Категории*/
+.palka {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.276), rgba(0, 0, 0, 0.13));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    min-height: 60px;
+    width: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    align-items: center;
+
+}
+
+
+.categories {
+    display: flex;
+    z-index: 2;
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+    display: block;
+}
+
+
+.categories button {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.123), rgba(0, 0, 0, 0.047));
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: none;
+    margin: 0px 1px;
+    font-weight: 600;
+    height: 60px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    width: 350px;
+    transition: all 200ms ease;
+}
+
+
+.categories button:hover {
+    background: linear-gradient(135deg, rgba(176, 106, 106, 0.188), rgba(136, 77, 77, 0.313));
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(241, 172, 247, 0.45);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(241, 172, 247, 0.45);
+    box-shadow: 0px 0px 8px 0px rgba(241, 172, 247, 0.45);
+}
+
+
+/*Карточки товара*/
+.kartochki {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-top: 90px;
+    gap: 50px;
+}
+
+
+.kvadrat {
+    width: 410px;
+    max-width: 410px;
+    height: 620px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    transition: all 200ms ease;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-right: 0;
+    margin-left: 0;
+    color: white;
+}
+
+
+.krug {
+    position: relative;
+    z-index: 1;
+    left: 45px;
+    top: 10px;
+    height: 300px;
+    opacity: 0.5;
+    transition: all 200ms ease;
+}
+
+
+.photo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    top: -540px;
+    transition: all 200ms ease;
+}
+
+
+.kvadrat:hover {
+    transform: scale(1.05);
+    -webkit-box-shadow: 0px 0px 8px 14px rgba(212, 45, 109, 0.16);
+    -moz-box-shadow: 0px 0px 8px 14px rgba(212, 45, 109, 0.16);
+    box-shadow: 0px 0px 8px 15px rgba(212, 45, 109, 0.16);
+    color: white;
+}
+
+
+.kvadrat:hover .photo {
+    top: -560px;
+    transform: scale(1.1);
+}
+
+/*
+.kvadrat:hover .krug {
+    opacity: 80%;
+}
+*/
+
+.photo.a {
+    left: -5px;
+}
+
+
+.kvadrat h2 {
+    font-size: 60px;
+    font-family: Niconne;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+    pointer-events: none;
+}
+
+
+.kvadrat span {
+    display: flex;
+    justify-content: space-around;
+    font-family: Montserrat;
+}
+
+
+.kvadrat span h4 {
+    font-weight: 100;
+    font-size: 24px;
+    pointer-events: none;
+    margin-top: 10px;
+}
+
+
+/*.kvadrat .btn {
+    margin-top: 10px;
+    list-style: none;
+    transition: all 200ms ease;
+}
+
+
+.kvadrat .btn:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+}
+*/
+
+/*.kvadrat .btn a {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 15px 115px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 32px;
+    border-radius: 60px;
+}*/
+
+
+/*футер*/
+.site-footer {
+    background-color: #000;
+    padding: 50px 0 25px 0;
+    color: #fff;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.footer-content p {
+    margin: 0;
+    opacity: 0.5;
+}
+
+.shaskaukusila {
+    display: flex;
+    gap: 33%;
+}
+
+.chocopie {
+    font-size: 16px;
+    margin-bottom: 50px;
+    font-weight: 100;
+    display: flex;
+    gap: 40px;
+    opacity: 0.8;
+    margin-left: 110px;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.chocopie li {
+    list-style: none;
+}
+
+.chocopie li:hover {
+    -webkit-filter: drop-shadow(0px 0px 15px rgb(255, 255, 255));
+    text-shadow: 0px 0px 5px #ffffff;
+    filter: dropshadow(color=#ffffff, offx=0, offy=0);
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .hero .kartochki {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+    gap: 20px;
+    margin-top: 100px;
+    }
+
+    .hero .kartochki .kvadrat {
+        width: 80%;
+        height: auto;
+    }
+
+    .hero .kartochki .kvadrat h2 {
+        font-size: 50px;
+    }
+
+    .hero .kartochki .kvadrat .photo {
+        height: 250px;
+        top: -400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+    }
+
+    header nav ul li {
+        width: 60px;
+    }
+
+    .shesternya {
+        margin-top: 10px;
+        margin-left: 5px;
+        width: 30px;
+    }
+
+    .hero .kartochki {
+        margin-top: 100px;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .hero .kartochki .kvadrat {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .hero .kartochki .kvadrat .photo {
+        height: 200px;
+        top: -300px;
+    }
+
+    .hero .kartochki .kvadrat h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+
+    .wrapper {
+        padding-top: 10px;
+    }
+    header nav {
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+    }
+
+    header nav ul {
+        margin-left: 0;
+        gap: 10px;
+    }
+
+    .hero {
+        padding-bottom: 300px;
+    }
+
+    .hero .kartochki {
+        margin-top: 200px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .hero .kartochki .kvadrat {
+        width: 100%;
+        height: 590px;
+        font-size: 50px;
+    }
+
+    .hero .kartochki .kvadrat .krug {
+        height: 200px;
+    }
+
+    .hero .kartochki .kvadrat .photo {
+        height: 150px;
+        top: -250px;
+    }
+
+    .hero .kartochki .kvadrat h2 {
+        font-size: 50px;
+    }
+
+    .hero .kartochki .kvadrat span h4 {
+        font-size: 20px;
+    }
+
+    .shaskaukusila {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .leffo, .rigfo {
+        margin: 0 auto;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .chocopie {
+        margin: 0;
+        margin-right: 25px;
+        gap: 20px;
+        text-align: center;
+    }
+
+}

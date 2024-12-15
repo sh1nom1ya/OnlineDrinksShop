@@ -1,0 +1,119 @@
+﻿@using drunkShop.Utility
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Коктельчики</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/drunkShop.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul class="half left">
+                <li class="active vid"><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/Images/menus.png" alt=""></a></li>
+                @if (User.IsInRole(WC.AdminRole))
+                {
+                    <div class="dropdown">
+                        <a class="mainMenu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,30">
+                            <img class="shesternya" src="~/Images/red.png" alt="">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Category" asp-action="Index" class="dropdown-item">Категории</a></li>
+                            <li><a asp-area="" asp-controller="ApplicationType" asp-action="Index" class="dropdown-item">Типы</a></li>
+                            <li><a asp-area="" asp-controller="Product" asp-action="Index" class="dropdown-item">Напитки</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a asp-area="Identity" asp-page="/Account/Register" class="dropdown-item">Создать Админа</a></li>
+                        </ul>
+                    </div>
+                    }
+                <li class="vid">
+                @{
+                    var shoppingCartList = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) ?? new List<ShoppingCart>();
+                }
+
+                @if (shoppingCartList.Any())
+                {
+                    <a asp-controller="Cart" asp-action="Index">
+                        <img src="~/Images/addbackets.png" alt="">
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Cart" asp-action="Index">
+                        <img src="~/Images/baskets.png" alt="">
+                    </a>
+                }
+            </li>
+            </ul>
+            <ul class="half right">
+                <li class="vid">
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-area="Identity" asp-page="/Account/Manage/Index" id="profile">
+                                <img src="~/Images/profiles.png" alt="Профиль">
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-area="Identity" asp-page="/Account/Login" id="login" >
+                                <img src="~/Images/profiles.png" alt="Логин">
+                            </a>
+                        }
+                    }
+                </li>
+                <li class="vid">
+                    <form asp-area="Identity" asp-page="/Account/Logout" method="post" style="display:inline;">
+                        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer;">
+                            <img src="~/Images/temas.png" alt="Выйти" />
+                        </button>
+                    </form>
+                    @*<a href="#">
+            <img src="~/Images/temas.png" alt="Темы">
+        </a>*@
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="hero">
+            @RenderBody()
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="shaskaukusila">
+                <div class="leffo">
+                    <ul class="chocopie">
+                        <li>Доставка</li>
+                        <li>Оплата</li>
+                        <li>Контакты</li>
+                        <li>Политика</li>
+                    </ul>
+                </div>
+                <div class="rigfo">
+                    <ul class="chocopie">
+                        <li>Vkontakte</li>
+                        <li>Telegram</li>
+                    </ul>
+                </div>
+            </div>
+            <p>© 2024 Shmaaaktail Cocktails.</p>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
