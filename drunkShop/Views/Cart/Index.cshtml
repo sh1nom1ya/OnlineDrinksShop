@@ -1,0 +1,62 @@
+@model IEnumerable<Product>
+<link rel="stylesheet" href="~/css/cart.css" asp-append-version="true" />
+
+<div class="order">
+    <h1>Ваш заказ!</h1>
+    @if (Model.Any())
+    {
+        <form method="post" asp-action="Index">
+            <div class="lines">
+                @for (var index = 0; index < Model.Count(); index++)
+                {
+                    var obj = Model.ElementAt(index);
+                    <div class="string">
+                        <span class="naming">@obj.Naming</span>
+                        <span class="ml">@obj.Volume<span>мл</span></span>
+                        <span class="cost">@obj.Price<span>р</span></span>
+                        <input class="quan" type="number" name="shoppingCartItems[@index].Quantity" value="1" min="1" max="99" data-price="@obj.Price" />
+                        <input type="hidden" name="shoppingCartItems[@index].ProductId" value="@obj.Id" />
+                        <a class="delA" asp-action="Remove" asp-route-id="@obj.Id"><img class="del" src="~/Images/krest.png" alt=""></a>
+                    </div>
+                }
+            </div>
+            <div class="knop">
+                <div class="finalprice">
+                    <span id="totalPrice">0.00</span>
+                    <p>р</p>
+                </div>
+                <button type="submit" class="form-control">Оформить</button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <div class="empty">Корзина пуста</div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateTotalPrice() {
+                let totalPrice = 0;
+
+                document.querySelectorAll('input[name^="shoppingCartItems"]').forEach(function (input) {
+                    const price = parseFloat(input.getAttribute('data-price')) || 0;
+                    const quantity = parseInt(input.value) || 0; 
+                    const itemTotal = price * quantity; 
+
+                    totalPrice += itemTotal; 
+                });
+
+                document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+            }
+
+            document.querySelectorAll('input[name^="shoppingCartItems"]').forEach(function (input) {
+                input.addEventListener('input', updateTotalPrice);
+            });
+
+            updateTotalPrice(); 
+        });
+    </script>
+}

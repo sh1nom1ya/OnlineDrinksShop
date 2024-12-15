@@ -1,0 +1,52 @@
+﻿@model drunkShop.Models.ViewModels.HomeVM
+
+<div class="container1">
+
+    <div class="about-us">
+        <div class="about-content">
+            <h1>Добро пожаловать в Shmaaaktail Cocktails!</h1>
+            <p>Мы создаем коктейли премиум-класса, используя только лучшие ингредиенты. Хотите освежающий безалкогольный напиток или крепкий классический коктейль? У нас найдется идеальный выбор для любого случая. Откройте для себя разнообразие нашего меню и поднимите ваш коктейльный опыт на новый уровень вместе с нами!</p>
+        </div>
+    </div>
+
+    <div class="palka">
+        <div class="categories">
+            <button class="filter-button" data-filter="all">Все</button>
+            @foreach (var obj in Model.Categories)
+            {
+                <button class="filter-button" data-filter="@obj.Naming">@obj.Naming</button>
+            }
+        </div>
+    </div>
+
+    <br />
+
+    <div class="kartochki">
+        @foreach (var product in Model.Products)
+        {
+            <partial name="_ProductCard" model="product" />
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+
+        $(".filter-button").click(function(){
+
+            var value = $(this).attr('data-filter');
+            if(value == "all")
+            {
+                $('.filter').show('1000');
+            }
+            else
+            {
+                $(".filter").not('.'+value).hide('3000');
+                $('.filter').filter('.'+value).show('3000');
+            }
+         });
+    });
+    </script>
+}

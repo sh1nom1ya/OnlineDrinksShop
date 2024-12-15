@@ -1,0 +1,207 @@
+﻿.cont1 {
+    margin-inline: auto;
+    border-radius: 8px;
+    width: 60%;
+}
+
+
+h2 {
+    margin: auto;
+    margin-bottom: 40px;
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff; 
+}
+
+
+form label {
+    display: block;
+    margin: 10px 0px 5px;
+    min-width: 170px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form input[type="file"],
+form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1); 
+    color: #fff; 
+    border: 1px solid rgba(255, 255, 255, 0.18); 
+    color: #fff;
+    appearance: none;
+    transition: all 200ms ease;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus,
+form select:focus {
+    outline: none; 
+    border: 1px solid rgba(255, 255, 255, 0.554); 
+}
+
+form input[type="text"]:disabled,
+form input[type="number"]:disabled,
+form textarea:disabled,
+form select:disabled {
+    background: rgba(255, 255, 255, 0.1); 
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.18); 
+}
+
+form input[type=file]::file-selector-button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: #fff;
+}
+
+
+form {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 50px 115px;
+}
+
+
+form textarea {
+    height: 100px;
+    resize: none;
+    color: white;
+}
+
+.note-toolbar .note-btn i,
+.note-toolbar .note-btn {
+    color: white !important;
+}
+
+.buttons {
+    display: inline-flex;
+    justify-content: space-around;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.create-btn, .back-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.create-btn {
+    background-color: #2f913977;
+    color: white;
+    margin-left: 100px;
+}
+
+.back-btn {
+    background-color: #d9534f;
+    color: white;
+}
+
+.create-btn:hover {
+    background-color: #25772d77;
+    border: none;
+    transform: scale(1.1);
+}
+
+.create-btn:active {
+    transform: scale(0.9);
+}
+
+.back-btn:hover {
+    background-color: #a93834;
+    border: none;
+    transform: scale(1.1);
+    color: white;
+}
+
+.back-btn:active {
+    transform: scale(0.9);
+}
+
+.In {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+    .In label {
+        width: 120px;
+    }
+
+
+@media screen and (max-width: 1024px) {
+    .cont1 {
+        width: 80%;
+    }
+
+    form {
+        padding: 30px 60px;
+    }
+
+    .buttons {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cont1 {
+        width: 90%;
+        padding-top: 60px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    .In {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .In label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+
+    .create-btn, .back-btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cont1 {
+        width: 95%;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    form label {
+        font-size: 16px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+}

@@ -1,0 +1,74 @@
+@model drunkShop.Models.Product
+<link rel="stylesheet" href="~/css/editingDB.css" asp-append-version="true" />
+
+
+    <div class="cont1">
+        <form method="post">
+            <input asp-for="Id" hidden />
+
+            <h2>Удаление напитка</h2>
+
+            @*-название-*@
+            <div class="In">
+                <label asp-for="Naming" for="naming">Название</label>
+                <input asp-for="Naming" disabled id="naming" name="naming" class="form-control" />
+            </div>
+
+            @*-цена-*@
+            <div class="In">
+                <label asp-for="Price"  for="price">Цена (руб)</label>
+                <input asp-for="Price" disabled id="price" name="price" class="form-control" />
+            </div>
+
+            @*-объем-*@
+            <div class="In">
+                <label asp-for="Volume" for="description">Объём (мл)</label>
+                <input asp-for="Volume" disabled id="description" name="description" class="form-control" />
+            </div>
+
+            @*-описание-*@
+            <div class="In">
+                <label asp-for="Description">Описание</label>
+                <textarea asp-for="Description" disabled id="description" name="description" class="form-control summernote"></textarea>
+            </div>
+
+            @*-категория-*@
+            <div class="In">
+                <label asp-for="CategoryId" for="category">Категория</label>
+                <input asp-for="Category.Naming" disabled id="category" name="category" class="form-control" />
+            </div>
+
+            @*-Тип-*@
+            <div class="In">
+                <label asp-for="ApplicationTypeId" for="apptype">Тип</label>
+                <input asp-for="ApplicationType.Naming" disabled id="apptype" name="apptype" class="form-control" />
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="back-btn">Удалить</button>
+                <a asp-action="Index" class="back-btn">Вернуться</a>
+            </div>
+
+        @*Картинка
+        <div class="col-4">
+            @if (Model.Id != 0)
+            {
+                <img class="swap" src="@WC.ImagePath@Model.Image" />
+            }
+        </div>*@
+        </form>
+    </div>
+
+    @section Scripts{
+
+        @{
+            <partial name="_ValidationScriptsPartial" />
+        }
+
+        <script>$(document).ready(function () {
+                $('.summernote').summernote({
+                    height: 180,
+                    disable: true
+                });
+            });</script>
+    }

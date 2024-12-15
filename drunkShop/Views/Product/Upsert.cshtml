@@ -1,0 +1,124 @@
+@model drunkShop.Models.ViewModels.ProductVM
+<link rel="stylesheet" href="~/css/editingDB.css" asp-append-version="true" />
+
+
+@{
+    string title = "Создание напитка";
+}
+
+<div class="cont1">
+    <form method="post" enctype="multipart/form-data">
+
+        @if (Model?.Product?.Id != 0)
+        {
+            title = "Редактирование напитка";
+            <input asp-for="Product.Id" hidden />
+        }
+
+        <h2>@title</h2>
+
+        @*-название-*@
+        <div class="In">
+            <label asp-for="Product.Naming">Название</label>
+            <input asp-for="Product.Naming" type="text" class="form-control" placeholder="Название напитка" />
+            <span asp-validation-for="Product.Naming" class="text-danger"></span>
+        </div>
+
+        @*-цена-*@
+        <div class="In">
+            <label asp-for="Product.Price">Цена (руб)</label>
+            <input asp-for="Product.Price" type="number" class="form-control" placeholder="1-15000" />
+            <span asp-validation-for="Product.Price" class="text-danger"></span>
+        </div>
+
+        @*-объем-*@
+        <div class="In">
+            <label asp-for="Product.Volume">Объём (мл)</label>
+            <input asp-for="Product.Volume" type="number" class="form-control" placeholder="50-800" />
+            <span asp-validation-for="Product.Volume" class="text-danger"></span>
+        </div>
+
+        @*-описание-*@
+        <div class="In">
+            <label asp-for="Product.Description">Описание</label>
+            <textarea asp-for="Product.Description" class="form-control summernote"></textarea>
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        </div>
+
+        @*-картинка-*@
+        <div class="In">
+            <label>Изображение</label>
+            <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+        </div>
+
+        @*-категория-*@
+        <div class="In">
+            <label asp-for="Product.CategoryId">Категория</label>
+            @if (Model?.CategorySelectList != null && Model.CategorySelectList.Any())
+            {
+                <select asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" class="form-control">
+                    <option disabled selected>Категория</option>
+                </select>
+            }
+            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+        </div>
+
+        @*-Тип-*@
+        <div class="In">
+            <label asp-for="Product.ApplicationTypeId">Тип</label>
+            @if (Model?.CategorySelectList != null && Model.CategorySelectList.Any())
+            {
+                <select asp-for="Product.ApplicationTypeId" asp-items="@Model.ApplicationTypeSelectList"class="form-control">
+                    <option disabled selected>Тип</option>
+                </select>
+            }
+            <span asp-validation-for="Product.ApplicationTypeId" class="text-danger"></span>
+        </div>
+
+        <div class="buttons">
+            @if (Model?.Product.Id != 0)
+            {
+                //update
+                <button type="submit" class="create-btn">Обновить</button>
+            }
+            else
+            {
+                //create
+                <button type="submit" onclick="return validateInput()" class="create-btn">Создать</button>
+            }
+            <a asp-action="Index" class="back-btn">Вернуться</a>
+        </div>
+
+        @*Просмотр фотографии после ее выбора рядом с описание*@
+        @*<div class="col-4">
+            @if (Model?.Product.Id != 0)
+            {
+                <img class="swap" src="@WC.ImagePath@Model?.Product.Image" />
+            }
+        </div>*@
+    </form>
+</div>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>$(document).ready(function () {
+            $('.summernote').summernote({
+                height: 180
+            });
+        });
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    title: "Ошибка!",
+                    text: "Загрузите фотокарточку товара!",
+                    icon: "error"
+                })
+                return false;
+            }
+            return true;
+        }</script>
+}

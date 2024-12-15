@@ -1,0 +1,120 @@
+﻿h2 {
+    text-align: center;
+}
+
+a {
+    color: #ed8a2d;
+}
+
+.wrapper {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 27%,
+        rgba(0,0,0,0.16150210084033612) 50%,
+        rgba(0,0,0,0.9122023809523809) 95%,
+        rgba(0,0,0,1) 100%), url(/Images/bgdb.JPG) no-repeat center center fixed;
+    padding-top: 0px;
+}
+
+
+.hero {
+    width: 100%;
+    padding-bottom: 90px;
+    display: grid;
+}
+
+
+.account {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+
+.account-box {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    opacity: .9;
+}
+
+
+.inputLogin {
+    width: 100%;
+    border-radius: 10px;
+    border: 0px;
+    height: 40px;
+    padding: 0px 20px;
+}
+
+
+.btnAdmin {
+    background: #f25613;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    border: 0px;
+    transition: all 200ms ease;
+}
+
+
+.btnReg {
+    background: #ed2626;
+    margin-top: 25px;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    border: 0px;
+    color: #fff;
+    transition: all 200ms ease;
+}
+
+
+.btnLogin {
+    background: #ed2626;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+    border: 0px;
+    color: #fff;
+    transition: all 200ms ease;
+}
+
+.btnLogin:hover {
+    border: none;
+    transform: scale(1.1);
+}
+
+
+.btnAdmin:hover {
+    border: none;
+    transform: scale(1.1);
+}
+
+
+.btnReg:hover {
+    border: none;
+    transform: scale(1.1);
+}
+
+
+.btnAdmin:active {
+    transform: scale(0.9);
+}
+
+.btnReg:active {
+    transform: scale(0.9);
+}
+
+.btnLogin:active {
+    transform: scale(0.9);
+}
