@@ -1,0 +1,137 @@
+﻿@page
+@model RegisterModel
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+<div class="account">
+    <div class="account-box">
+        @if (User.IsInRole(drunkShop.WC.AdminRole))
+        {
+            <h2>Регистрация Администратора</h2>
+        }
+        else
+        {
+            <h2>Регистрация</h2>
+        }
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <span>Имя</span>
+                <input class="inputLogin" asp-for="Input.FullName" class="form-control" autocomplete="username" aria-required="true" placeholder="Кагуя Синомия" />
+                <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <span>Телефон</span>
+                <input type="tel" class="inputLogin" asp-for="Input.PhoneNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="8 ••• ••• •• ••" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <span>Почта</span>
+                <input class="inputLogin" asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@gmail.com" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <span>Пароль</span>
+                <input class="inputLogin" asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="•••••••••" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <span>Проверка пароля</span>
+                <input class="inputLogin" asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="•••••••••" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            @if (User.IsInRole(drunkShop.WC.AdminRole))
+            {
+                <button id="registerSubmit" type="submit" class="btnAdmin">Зарегестрировать Админа</button>
+            }
+            else
+            {
+                <button id="registerSubmit" type="submit" class="btnReg">Зарегестрироваться</button>
+            }
+            <p class="text-center mt-2">
+                У вас уже есть аккаунт? - <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Войдите</a>
+            </p>
+            <div class="text-center">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none mt-3">Вернуться</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div class="row">
+        <div class="col-md-4">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h2>Create a new account.</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.FullName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.FullName">ФИО</label>
+                    <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.PhoneNumber">Телефон</label>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password">Пароль</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.ConfirmPassword">Подтверждение пароля</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                @if (User.IsInRole(drunkShop.WC.AdminRole))
+                {
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-warning">Зарегестрировать Админа</button>
+                }
+                else
+                {
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Зарегестрироваться</button>
+                }
+            </form>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <section>
+                <h3>Use another service to register.</h3>
+                <hr />
+                @{
+                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                    article
+                                    about setting up this ASP.NET application to support logging in via external services
+                                </a>.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins!)
+                                    {
+                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }
+            </section>
+        </div>
+    </div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

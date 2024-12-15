@@ -1,0 +1,34 @@
+@model drunkShop.Models.Category
+<link rel="stylesheet" href="~/css/editingDB.css" asp-append-version="true" />
+
+<div class="cont1">
+    <form method="post" asp-action="Create">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h2>Создание категории</h2>
+
+        <div class="In">
+            <label asp-for="Naming" for="naming">Название</label>
+            <input asp-for="Naming" id="naming" name="naming" class="form-control" placeholder="Название категории" />
+            <span asp-validation-for="Naming" class="text-danger"></span>
+        </div>
+
+        <div class="In">
+            <label asp-for="DisplayOrder" for="displayOrder">Порядок</label>
+            <input asp-for="DisplayOrder" id="displayOrder" name="displayOrder" class="form-control" placeholder="Порядок отображения" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        <div class="buttons">
+            <button type="submit" class="create-btn">Создать</button>
+            <a asp-action="Index" class="back-btn">Вернуться</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
